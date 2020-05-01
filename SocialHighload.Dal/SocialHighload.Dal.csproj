@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>OtusSocial.Dal</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SocialHighload.Dal.Model\SocialHighload.Dal.Model.csproj" />
+      <ProjectReference Include="..\SocialHighload.Service.Model\SocialHighload.Service.Model.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MySql.Data" Version="8.0.19" />
+    </ItemGroup>
+
+</Project>

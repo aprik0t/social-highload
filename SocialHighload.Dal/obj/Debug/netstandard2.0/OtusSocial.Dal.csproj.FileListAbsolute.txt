@@ -1,0 +1,14 @@
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Dal.deps.json
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Dal.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Dal.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Dal.Model.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Service.Model.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Dal.Model.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\bin\Debug\netstandard2.0\OtusSocial.Service.Model.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.csprojAssemblyReference.cache
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.AssemblyInfoInputs.cache
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.AssemblyInfo.cs
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.csproj.CopyComplete
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal\obj\Debug\netstandard2.0\OtusSocial.Dal.pdb

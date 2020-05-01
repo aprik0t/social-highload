@@ -1,0 +1,16 @@
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\bin\Debug\net451\SocialHighload.Dal.Model.dll
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\bin\Debug\net451\SocialHighload.Dal.Model.pdb
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.csprojAssemblyReference.cache
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.csproj.CoreCompileInputs.cache
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.AssemblyInfoInputs.cache
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.AssemblyInfo.cs
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.dll
+C:\Users\Красавчик\source\OtusSocial\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.pdb
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\bin\Debug\net451\SocialHighload.Dal.Model.dll
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\bin\Debug\net451\SocialHighload.Dal.Model.pdb
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.csprojAssemblyReference.cache
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.csproj.CoreCompileInputs.cache
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.AssemblyInfoInputs.cache
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.AssemblyInfo.cs
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.dll
+C:\Users\Красавчик\source\SocialHighload\SocialHighload.Dal.Model\obj\Debug\net451\SocialHighload.Dal.Model.pdb

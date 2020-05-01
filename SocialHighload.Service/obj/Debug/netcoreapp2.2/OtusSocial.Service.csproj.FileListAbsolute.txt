@@ -1,0 +1,16 @@
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Service.deps.json
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Service.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Service.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Service.Model.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Service.Model.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.csprojAssemblyReference.cache
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.csproj.CoreCompileInputs.cache
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.AssemblyInfoInputs.cache
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.AssemblyInfo.cs
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.csproj.CopyComplete
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\obj\Debug\netcoreapp2.2\OtusSocial.Service.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Dal.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Dal.Model.dll
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Dal.pdb
+C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service\bin\Debug\netcoreapp2.2\OtusSocial.Dal.Model.pdb

@@ -1,0 +1,34 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Dal.Model\\SocialHighload.Dal.Model.csproj",
+    "projectName": "SocialHighload.Dal.Model",
+    "projectPath": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Dal.Model\\SocialHighload.Dal.Model.csproj",
+    "outputPath": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Dal.Model\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "net451"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "http://nuget.grapecity.com/nuget": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "net451": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "net451": {}
+  }
+}

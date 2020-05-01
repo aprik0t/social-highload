@@ -1,0 +1,55 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Service\\SocialHighload.Service.csproj",
+    "projectName": "SocialHighload.Service",
+    "projectPath": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Service\\SocialHighload.Service.csproj",
+    "outputPath": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Service\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "http://nuget.grapecity.com/nuget": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {
+          "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Dal\\SocialHighload.Dal.csproj": {
+            "projectPath": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Dal\\SocialHighload.Dal.csproj"
+          },
+          "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Service.Model\\SocialHighload.Service.Model.csproj": {
+            "projectPath": "C:\\Users\\Красавчик\\source\\SocialHighload\\SocialHighload.Service.Model\\SocialHighload.Service.Model.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
