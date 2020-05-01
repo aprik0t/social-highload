@@ -1,8 +1,0 @@
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\bin\Debug\net451\OtusSocial.Dal.Model.dll
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\bin\Debug\net451\OtusSocial.Dal.Model.pdb
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\obj\Debug\net451\OtusSocial.Dal.Model.csprojAssemblyReference.cache
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\obj\Debug\net451\OtusSocial.Dal.Model.csproj.CoreCompileInputs.cache
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\obj\Debug\net451\OtusSocial.Dal.Model.AssemblyInfoInputs.cache
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\obj\Debug\net451\OtusSocial.Dal.Model.AssemblyInfo.cs
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\obj\Debug\net451\OtusSocial.Dal.Model.dll
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Dal.Model\obj\Debug\net451\OtusSocial.Dal.Model.pdb

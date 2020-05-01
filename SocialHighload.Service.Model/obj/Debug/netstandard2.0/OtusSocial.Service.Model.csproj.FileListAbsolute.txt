@@ -1,9 +1,0 @@
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\bin\Debug\netstandard2.0\OtusSocial.Service.Model.deps.json
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\bin\Debug\netstandard2.0\OtusSocial.Service.Model.dll
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\bin\Debug\netstandard2.0\OtusSocial.Service.Model.pdb
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\obj\Debug\netstandard2.0\OtusSocial.Service.Model.csprojAssemblyReference.cache
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\obj\Debug\netstandard2.0\OtusSocial.Service.Model.csproj.CoreCompileInputs.cache
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\obj\Debug\netstandard2.0\OtusSocial.Service.Model.AssemblyInfoInputs.cache
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\obj\Debug\netstandard2.0\OtusSocial.Service.Model.AssemblyInfo.cs
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\obj\Debug\netstandard2.0\OtusSocial.Service.Model.dll
-C:\Users\Красавчик\source\OtusSocial\OtusSocial.Service.Model\obj\Debug\netstandard2.0\OtusSocial.Service.Model.pdb
