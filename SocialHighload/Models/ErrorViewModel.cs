@@ -1,6 +1,4 @@
-using System;
-
-namespace OtusSocial.Models
+namespace SocialHighload.Models
 {
     public class ErrorViewModel
     {

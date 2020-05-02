@@ -3,7 +3,6 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <DebugType>full</DebugType>
-        <RootNamespace>OtusSocial</RootNamespace>
     </PropertyGroup>
 
 
@@ -16,11 +15,6 @@
         <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
-    </ItemGroup>
-
-
-    <ItemGroup>
-      <Folder Include="Pages" />
     </ItemGroup>
 
 

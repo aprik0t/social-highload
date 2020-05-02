@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OtusSocial.Models;
-using OtusSocial.Service.Model.Dto.People;
-using OtusSocial.Service.Service;
+using SocialHighload.Models;
+using SocialHighload.Service.Model.Dto;
+using SocialHighload.Service.Service;
 
-namespace OtusSocial.Controllers
+namespace SocialHighload.Controllers
 {
     [AllowAnonymous]
     public class AccountController : Controller
@@ -37,11 +37,16 @@ namespace OtusSocial.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SignIn(SignInModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) 
+                return View(model);
+            var person = await _personService.FindByLoginAsync(model.Email);
+            if (person.HasValue)
             {
                 await Authenticate(model.Email);
                 return RedirectToAction("Index", "Home");
             }
+                
+            ModelState.AddModelError("Password", "Неверные данные пользователя");
 
             return View(model);
         }

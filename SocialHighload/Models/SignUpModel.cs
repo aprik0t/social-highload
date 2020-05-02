@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace OtusSocial.Models
+namespace SocialHighload.Models
 {
     public class SignUpModel
     {

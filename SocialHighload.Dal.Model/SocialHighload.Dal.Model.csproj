@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net451</TargetFramework>
-        <RootNamespace>OtusSocial.Dal.Model</RootNamespace>
     </PropertyGroup>
 
 </Project>

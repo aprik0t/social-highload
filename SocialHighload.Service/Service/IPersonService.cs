@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using OtusSocial.Service.Model.Dto.People;
+using SocialHighload.Service.Model.Dto;
 
-namespace OtusSocial.Service.Service
+namespace SocialHighload.Service.Service
 {
     public interface IPersonService
     {
         Task<int?> CreatePersonAsync(DtoPerson person);
-        Task<List<DtoPerson>> GetAllPersonsAsync();
+        Task<List<DtoPerson>> GetAllPersonsAsync(int personId);
+        Task<int?> FindByLoginAsync(string email);
     }
 }

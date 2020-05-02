@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OtusSocial.Models;
+using SocialHighload.Models;
 
-namespace OtusSocial.Controllers
+namespace SocialHighload.Controllers
 {
     [Authorize]
     public class HomeController : Controller

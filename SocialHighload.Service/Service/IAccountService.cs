@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace OtusSocial.Service.Service
+namespace SocialHighload.Service.Service
 {
     public interface IAccountService
     {

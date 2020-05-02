@@ -1,4 +1,4 @@
-namespace OtusSocial.Service.Model.Dto
+namespace SocialHighload.Service.Model.Dto
 {
     public class DtoAccount
     {

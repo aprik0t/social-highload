@@ -1,16 +1,17 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using OtusSocial.Dal.Model.Entity;
 
-namespace OtusSocial.Dal.Infrastructure.Db
+namespace SocialHighload.Dal.Infrastructure.Db
 {
     public class DbClient
     {
         private readonly string _connectionString;
+        public const string PersonTable = "Persons";
+        public const string FriendsTable = "FriendRequests";
+        public const string AccountsTable = "Accounts";
 
         public DbClient(string connectionString)
         {
@@ -37,6 +38,16 @@ namespace OtusSocial.Dal.Infrastructure.Db
             }
         }
 
+        public void RunCmd(string query)
+        {
+            using (var connection = GetSqlConnectionAsync().GetAwaiter().GetResult())
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public async Task RunCmdAsync(string query)
         {
             using (var connection = await GetSqlConnectionAsync())
@@ -57,12 +68,15 @@ namespace OtusSocial.Dal.Infrastructure.Db
                 var dataReader = await cmd.ExecuteReaderAsync();
                 
                 while (await dataReader.ReadAsync())
-                {
-                    tableList.Add(dataReader[0].ToString());
-                }
+                    tableList.Add(dataReader[0].ToString().ToUpper());
             }
 
-            return tableList.OrderBy(t => t).SequenceEqual(new[] {"accounts", "friends", "persons"});
+            return tableList.OrderBy(t => t).SequenceEqual(new[]
+            {
+                AccountsTable.ToUpper(), 
+                FriendsTable.ToUpper(),
+                PersonTable.ToUpper()
+            });
         }
         
         public async Task EnsureDbCreated()
@@ -72,9 +86,12 @@ namespace OtusSocial.Dal.Infrastructure.Db
             
             var query =
                 #region SQL для создания базовых таблиц
-                @"
-                    DROP TABLE IF EXISTS `Persons`;
-                    CREATE TABLE `Persons` (
+                $@"
+                    DROP TABLE IF EXISTS `{FriendsTable}`;
+                    DROP TABLE IF EXISTS `{AccountsTable}`;
+                    DROP TABLE IF EXISTS `{PersonTable}`;
+                    
+                    CREATE TABLE `{PersonTable}` (
                       `Id` int unsigned NOT NULL AUTO_INCREMENT ,
                       `Surname` varchar(100) NOT NULL,
                       `Name` varchar(100) NOT NULL,
@@ -85,20 +102,21 @@ namespace OtusSocial.Dal.Infrastructure.Db
                       PRIMARY KEY (`Id`)
                     );
 
-                    DROP TABLE IF EXISTS `Friends`;
-                    CREATE TABLE `Friends` (
+                    CREATE TABLE `{FriendsTable}` (
                       `Id` int NOT NULL AUTO_INCREMENT,
-                      `Person1Id` int unsigned NOT NULL,
-                      `Person2Id` int unsigned NOT NULL,
+                      `SenderPersonId` int unsigned NOT NULL,
+                      `ReceiverPersonId` int unsigned NOT NULL,
+                      `Status` int unsigned NOT NULL DEFAULT 0,
                       PRIMARY KEY (`Id`),
-                      KEY `Person1Id` (`Person1Id`),
-                      KEY `Person2Id` (`Person2Id`),
-                      CONSTRAINT `Friends_ibfk_1` FOREIGN KEY (`Person1Id`) REFERENCES `Persons` (`Id`) ON DELETE CASCADE,
-                      CONSTRAINT `Friends_ibfk_2` FOREIGN KEY (`Person2Id`) REFERENCES `Persons` (`Id`) ON DELETE CASCADE
+                      KEY `SenderPersonId` (`SenderPersonId`),
+                      KEY `ReceiverPersonId` (`ReceiverPersonId`),
+                      CONSTRAINT `Friends_ibfk_1` FOREIGN KEY (`SenderPersonId`) REFERENCES `Persons` (`Id`) ON DELETE CASCADE,
+                      CONSTRAINT `Friends_ibfk_2` FOREIGN KEY (`ReceiverPersonId`) REFERENCES `Persons` (`Id`) ON DELETE CASCADE,
+                      CONSTRAINT `Friends_relation_unique` UNIQUE KEY (`SenderPersonId`, `ReceiverPersonId`),
+                      CONSTRAINT `Friends_relation_unique_reverse` UNIQUE KEY (`ReceiverPersonId`, `SenderPersonId`)
                     );
 
-                    DROP TABLE IF EXISTS `Accounts`;
-                    CREATE TABLE `Accounts` (
+                    CREATE TABLE `{AccountsTable}` (
                       `Id` int NOT NULL AUTO_INCREMENT ,
                       `Email` varchar(100) NOT NULL,
                       `Password` varchar(100) NOT NULL,

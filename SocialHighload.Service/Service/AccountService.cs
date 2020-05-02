@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using OtusSocial.Dal.Infrastructure.Db;
+using SocialHighload.Dal.Infrastructure.Db;
 
-namespace OtusSocial.Service.Service
+namespace SocialHighload.Service.Service
 {
     public class AccountService: IAccountService
     {

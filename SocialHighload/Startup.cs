@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using OtusSocial.Dal.Infrastructure.Db;
-using OtusSocial.MappingProfiles;
-using OtusSocial.Service.Service;
+using SocialHighload.Dal.Infrastructure.Db;
+using SocialHighload.Service.Service;
 
-namespace OtusSocial
+namespace SocialHighload
 {
     public class Startup
     {
@@ -45,6 +44,7 @@ namespace OtusSocial
             dbClient.EnsureDbCreated().Wait();
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IFriendsService, FriendsService>();
             
             services.AddAutoMapper(typeof(Startup));
         }

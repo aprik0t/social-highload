@@ -36,14 +36,14 @@
                                 <a asp-controller="Account" asp-action="SignUp"
                                    class="nav-link text-dark btn-outline-warning">
                                     <i class="fa fa-user-plus"></i>&nbsp;
-                                    Sign up
+                                    Присоединиться
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a asp-controller="Account" asp-action="SignIn"
                                    class="nav-link text-dark btn-outline-warning">
                                     <i class="fa fa-sign-in-alt"></i>&nbsp;
-                                    Sign in
+                                    Войти
                                 </a>
                             </li>
                         </ul>
@@ -56,14 +56,14 @@
                                    class="nav-link text-dark btn-outline-warning dropdown-toggle"
                                    data-toggle="dropdown">
                                     <i class="fa fa-user"></i>&nbsp;
-                                    Profile
+                                    Профиль
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item"><a href="#" class="nav-link"><i class="fa fa-user-edit"></i>&nbsp; Edit Profile</a></li>
-                                    <li class="dropdown-item"><a href="#" class="nav-link"><i class="fa fa-user-friends"></i>&nbsp; My Friends</a></li>
+                                    <li class="dropdown-item"><a href="@Url.Action("Index", "Profile")" class="nav-link"><i class="fa fa-user-edit"></i>&nbsp; Редактировать</a></li>
+                                    <li class="dropdown-item"><a href="@Url.Action("Friends", "Profile")" class="nav-link"><i class="fa fa-user-friends"></i>&nbsp; Мои друзья</a></li>
                                     <li class="dropdown-divider"></li>
                                     <li class="dropdown-item">
-                                        <a asp-controller="Account" asp-action="SignOut" class="nav-link"><i class="fa fa-sign-out-alt"></i>&nbsp; Sign out</a>
+                                        <a asp-controller="Account" asp-action="SignOut" class="nav-link"><i class="fa fa-sign-out-alt"></i>&nbsp; Выйти</a>
                                     </li>
                                 </ul>
                             </li>
@@ -71,12 +71,12 @@
                     }
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark btn-outline-warning" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i>&nbsp; Home</a>
+                            <a class="nav-link text-dark btn-outline-warning" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i>&nbsp; Домой</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a asp-controller="Person" asp-action="Network" class="nav-link text-dark btn-outline-warning"><i class="fa fa-users"></i>&nbsp; Network</a>
+                                <a asp-controller="Person" asp-action="People" class="nav-link text-dark btn-outline-warning"><i class="fa fa-users"></i>&nbsp; Люди</a>
                             </li>
                         }
                     </ul>
