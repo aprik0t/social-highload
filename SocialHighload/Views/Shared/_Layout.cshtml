@@ -56,11 +56,10 @@
                                    class="nav-link text-dark btn-outline-warning dropdown-toggle"
                                    data-toggle="dropdown">
                                     <i class="fa fa-user"></i>&nbsp;
-                                    Профиль
+                                    @User.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item"><a href="@Url.Action("Index", "Profile")" class="nav-link"><i class="fa fa-user-edit"></i>&nbsp; Редактировать</a></li>
-                                    <li class="dropdown-item"><a href="@Url.Action("Friends", "Profile")" class="nav-link"><i class="fa fa-user-friends"></i>&nbsp; Мои друзья</a></li>
+                                    <li class="dropdown-item"><a href="@Url.Action("Profile", "Person")" class="nav-link"><i class="fa fa-user-edit"></i>&nbsp; Профиль</a></li>
                                     <li class="dropdown-divider"></li>
                                     <li class="dropdown-item">
                                         <a asp-controller="Account" asp-action="SignOut" class="nav-link"><i class="fa fa-sign-out-alt"></i>&nbsp; Выйти</a>
@@ -76,7 +75,10 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a asp-controller="Person" asp-action="People" class="nav-link text-dark btn-outline-warning"><i class="fa fa-users"></i>&nbsp; Люди</a>
+                                <a asp-controller="Person" asp-action="Index" class="nav-link text-dark btn-outline-warning"><i class="fa fa-users"></i>&nbsp; Люди</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Friends" asp-action="Index" class="nav-link text-dark btn-outline-warning"><i class="fa fa-user-friends"></i>&nbsp; Мои друзья</a>
                             </li>
                         }
                     </ul>

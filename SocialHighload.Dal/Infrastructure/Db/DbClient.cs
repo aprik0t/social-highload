@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace SocialHighload.Dal.Infrastructure.Db
     public class DbClient
     {
         private readonly string _connectionString;
-        public const string PersonTable = "Persons";
+        public const string PersonsTable = "Persons";
         public const string FriendsTable = "FriendRequests";
         public const string AccountsTable = "Accounts";
 
@@ -35,6 +36,17 @@ namespace SocialHighload.Dal.Infrastructure.Db
                 var dataTable = new DataTable();
                 dataTable.Load(dataReader);
                 return dataTable;
+            }
+        }
+
+        public async Task<DataSet> GetDataSetASync(string query)
+        {
+            using (var connection = await GetSqlConnectionAsync())
+            using (var dataAdapter = new MySqlDataAdapter(query, connection))
+            {
+                var dataSet = new DataSet();
+                await dataAdapter.FillAsync(dataSet);
+                return dataSet;
             }
         }
 
@@ -75,7 +87,7 @@ namespace SocialHighload.Dal.Infrastructure.Db
             {
                 AccountsTable.ToUpper(), 
                 FriendsTable.ToUpper(),
-                PersonTable.ToUpper()
+                PersonsTable.ToUpper()
             });
         }
         
@@ -89,9 +101,9 @@ namespace SocialHighload.Dal.Infrastructure.Db
                 $@"
                     DROP TABLE IF EXISTS `{FriendsTable}`;
                     DROP TABLE IF EXISTS `{AccountsTable}`;
-                    DROP TABLE IF EXISTS `{PersonTable}`;
+                    DROP TABLE IF EXISTS `{PersonsTable}`;
                     
-                    CREATE TABLE `{PersonTable}` (
+                    CREATE TABLE `{PersonsTable}` (
                       `Id` int unsigned NOT NULL AUTO_INCREMENT ,
                       `Surname` varchar(100) NOT NULL,
                       `Name` varchar(100) NOT NULL,

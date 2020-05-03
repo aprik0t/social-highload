@@ -1,6 +1,6 @@
 using SocialHighload.Service.Model.Enums;
 
-namespace SocialHighload.Service.Model.Dto
+namespace SocialHighload.Service.Model.Dto.Person
 {
     public class DtoPerson
     {

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialHighload.Models;
 using SocialHighload.Service.Model.Dto;
+using SocialHighload.Service.Model.Dto.Person;
 using SocialHighload.Service.Service;
 
 namespace SocialHighload.Controllers

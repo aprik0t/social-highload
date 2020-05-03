@@ -1,8 +1,9 @@
-using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialHighload.Exceptions;
+using SocialHighload.Service.Model.Dto.Person;
 using SocialHighload.Service.Service;
 
 namespace SocialHighload.Controllers
@@ -11,17 +12,17 @@ namespace SocialHighload.Controllers
     public class PersonController : Controller
     {
         private readonly IPersonService _personService;
-        private readonly IFriendsService _friendsService;
+        private readonly IMapper _mapper;
 
-        public PersonController(IPersonService personService,
-            IFriendsService friendsService)
+        public PersonController(IPersonService personService, 
+            IMapper mapper)
         {
             _personService = personService;
-            _friendsService = friendsService;
+            _mapper = mapper;
         }
-
+        
         [HttpGet]
-        public async Task<IActionResult> People()
+        public async Task<IActionResult> Index()
         {
             var personId = await _personService.FindByLoginAsync(User.Identity.Name);
             if (!personId.HasValue) 
@@ -32,27 +33,39 @@ namespace SocialHighload.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddToFriends(int targetPersonId)
+        public async Task<IActionResult> Person(int personId)
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
-            if (!personId.HasValue)
+            var curPersonId = await _personService.FindByLoginAsync(User.Identity.Name);
+            if (!curPersonId.HasValue) 
                 throw new UnknownUserException();
-
-            await _friendsService.AddToFriendsAsync(personId.Value, targetPersonId);
+            var personInfo = await _personService.GetPersonInfoAsync(personId, curPersonId);
+            if (personInfo == null)
+                throw new UnknownPersonException();
             
-            return RedirectToAction("People");
+            return View(personInfo);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var curPersonId = await _personService.FindByLoginAsync(User.Identity.Name);
+            if (!curPersonId.HasValue) 
+                throw new UnknownUserException();
+            var personInfo = await _personService.GetPersonInfoAsync(curPersonId.Value);
+            
+            return View(_mapper.Map<DtoUpdatePerson>(personInfo));
         }
 
-        [HttpGet]
-        public async Task<IActionResult> DeleteRequest(int targetPersonId)
+        [HttpPost]
+        public async Task<IActionResult> Profile(DtoUpdatePerson profileData)
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
-            if (!personId.HasValue)
+            var curPersonId = await _personService.FindByLoginAsync(User.Identity.Name);
+            if (!curPersonId.HasValue) 
                 throw new UnknownUserException();
+            var updatedPerson = await _personService.UpdateAsync(curPersonId.Value, profileData);
 
-            await _friendsService.DeleteRequestAsync(personId.Value, targetPersonId);
-            
-            return RedirectToAction("People");
+            TempData["SuccessMessage"] = "Профиль успешно сохранен";
+            return View(_mapper.Map<DtoUpdatePerson>(updatedPerson));
         }
     }
 }
