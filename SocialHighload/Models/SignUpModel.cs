@@ -27,7 +27,7 @@ namespace SocialHighload.Models
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
 
-        [StringLength(400)]
+        [StringLength(400, ErrorMessage = "Слишком много слов")]
         public string Bio { get; set; }
 
         [Required(ErrorMessage = "Укажите возраст")]
