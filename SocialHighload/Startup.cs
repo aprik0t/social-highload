@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SocialHighload.Dal.Infrastructure.Db;
+using SocialHighload.Security;
 using SocialHighload.Service.Service;
 
 namespace SocialHighload
@@ -45,6 +46,7 @@ namespace SocialHighload
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IFriendsService, FriendsService>();
+            services.AddSingleton<Encrypt>();
             
             services.AddAutoMapper(typeof(Startup));
         }

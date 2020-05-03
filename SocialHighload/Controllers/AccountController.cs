@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialHighload.Models;
-using SocialHighload.Service.Model.Dto;
+using SocialHighload.Security;
 using SocialHighload.Service.Model.Dto.Person;
 using SocialHighload.Service.Service;
 
@@ -19,13 +19,17 @@ namespace SocialHighload.Controllers
         private readonly IAccountService _accountService;
         private readonly IPersonService _personService;
         private readonly IMapper _mapper;
+        private readonly Encrypt _encrypt;
 
         public AccountController(IAccountService accountService, 
-            IPersonService personService, IMapper mapper)
+            IPersonService personService, 
+            IMapper mapper, 
+            Encrypt encrypt)
         {
             _accountService = accountService;
             _personService = personService;
             _mapper = mapper;
+            _encrypt = encrypt;
         }
 
         [HttpGet]
@@ -40,15 +44,18 @@ namespace SocialHighload.Controllers
         {
             if (!ModelState.IsValid) 
                 return View(model);
-            var person = await _personService.FindByLoginAsync(model.Email);
+            var person = await _personService.FindByEmailAsync(model.Email);
             if (person.HasValue)
             {
-                await Authenticate(model.Email);
-                return RedirectToAction("Index", "Home");
+                var account = await _accountService.FindByEmailAsync(model.Email);
+                if (account != null && _encrypt.VerifyHashedPassword(account.Password, model.Password))
+                {
+                    await Authenticate(model.Email);
+                    return RedirectToAction("Index", "Home");
+                }
             }
                 
             ModelState.AddModelError("Password", "Неверные данные пользователя");
-
             return View(model);
         }
 
@@ -97,7 +104,8 @@ namespace SocialHighload.Controllers
                 var personResult = await _personService.CreatePersonAsync(_mapper.Map<SignUpModel, DtoPerson>(model));
                 if (personResult.HasValue)
                 {
-                    var accountResult = await _accountService.CreateAccountAsync(personResult.Value, model.Email, model.Password);
+                    var hashedPassword = _encrypt.HashPassword(model.Password);
+                    var accountResult = await _accountService.CreateAccountAsync(personResult.Value, model.Email, hashedPassword);
                     if (accountResult.HasValue)
                     {
                         await Authenticate(model.Email);

@@ -4,6 +4,7 @@ namespace SocialHighload.Models
 {
     public class SignInModel
     {
+        [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage ="Не указан email")]
         public string Email { get; set; }
         

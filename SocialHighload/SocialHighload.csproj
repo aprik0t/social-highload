@@ -19,6 +19,7 @@
 
 
     <ItemGroup>
+      <ProjectReference Include="..\SocialHighload.Security\SocialHighload.Security.csproj" />
       <ProjectReference Include="..\SocialHighload.Service\SocialHighload.Service.csproj" />
     </ItemGroup>
 

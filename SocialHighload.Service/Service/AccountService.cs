@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using SocialHighload.Dal.Infrastructure.Db;
+using SocialHighload.Service.Model.Dto.Account;
 
 namespace SocialHighload.Service.Service
 {
@@ -25,6 +26,19 @@ namespace SocialHighload.Service.Service
                 "INSERT INTO `Accounts` (`Email`, `Password`, `PersonId`) " + 
                 $"VALUES ('{email}', '{password}', {personId})");
             return await _dbClient.TryGetIntAsync("SELECT LAST_INSERT_ID();");
+        }
+
+        public async Task<DtoAccount> FindByEmailAsync(string email)
+        {
+            var dataTable = await _dbClient.GetDataTableAsync($"SELECT * FROM Accounts WHERE `Email` = '{email}'");
+            if (dataTable == null || dataTable.Rows.Count == 0)
+                return null;
+            
+            return new DtoAccount
+            {
+                Email = dataTable.Rows[0]["Email"].ToString(),
+                Password = dataTable.Rows[0]["Password"].ToString()
+            };
         }
     }
 }

@@ -23,7 +23,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var personId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!personId.HasValue)
                 throw new UnknownUserException();
 
@@ -34,7 +34,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> SendFriendRequest(int targetPersonId, string returnUrl)
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var personId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!personId.HasValue)
                 throw new UnknownUserException();
 
@@ -48,7 +48,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> CancelRequest(int targetPersonId, string returnUrl)
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var personId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!personId.HasValue)
                 throw new UnknownUserException();
 
@@ -63,7 +63,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> Approve(int requestId)
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var personId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!personId.HasValue)
                 throw new UnknownUserException();
             var friendRequestInfo = await _friendsService.GetRequestInfoAsync(requestId);
@@ -77,7 +77,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> Reject(int requestId)
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var personId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!personId.HasValue)
                 throw new UnknownUserException();
             var friendRequestInfo = await _friendsService.GetRequestInfoAsync(requestId);

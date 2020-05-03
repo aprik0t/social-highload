@@ -10,7 +10,7 @@
     <div class="col-2"></div>
     <div class="col-8">
     <h2>Профиль пользователя</h2>
-    @if (TempData.ContainsKey("SuccessMessage") && !string.IsNullOrWhiteSpace(TempData["ViewData"].ToString()))
+    @if (TempData.ContainsKey("SuccessMessage") && !string.IsNullOrWhiteSpace(TempData["SuccessMessage"].ToString()))
     {
         <div class="alert alert-success"><i class="fa fa-check"></i> Данные профиля успешно сохранены</div>
     }

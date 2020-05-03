@@ -9,7 +9,7 @@ namespace SocialHighload.Service.Service
     {
         Task<int?> CreatePersonAsync(DtoPerson person);
         Task<List<DtoPerson>> GetAllPersonsAsync(int personId);
-        Task<int?> FindByLoginAsync(string email);
+        Task<int?> FindByEmailAsync(string email);
         Task<DtoPerson> GetPersonInfoAsync(int personId, int? curPersonId = null);
         Task<DtoPerson> UpdateAsync(int personId, DtoUpdatePerson profileData);
     }

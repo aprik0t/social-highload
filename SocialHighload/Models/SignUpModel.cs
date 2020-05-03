@@ -5,18 +5,22 @@ namespace SocialHighload.Models
     public class SignUpModel
     {
         [Required(ErrorMessage = "Не указано имя")]
+        [RegularExpression(@"^[a-zA-Zа-яА-Я-]+$", ErrorMessage = "Используйте только буквы и дефис")]
         [StringLength(100)]
         public string Name { get; set; }
         
         [Required(ErrorMessage = "Не указана фамилия")]
+        [RegularExpression(@"^[a-zA-Zа-яА-Я-]+$", ErrorMessage = "Используйте только буквы и дефис")]
         [StringLength(100)]
         public string Surname { get; set; }
         
         [Required(ErrorMessage = "Не указан город")]
+        [RegularExpression(@"^[a-zA-Zа-яА-Я-]+$", ErrorMessage = "Используйте только буквы и дефис")]
         [StringLength(100)]
         public string City { get; set; }
         
         [Required(ErrorMessage = "Не указан email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
          
         [Required(ErrorMessage = "Не указан пароль")]
@@ -27,6 +31,7 @@ namespace SocialHighload.Models
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
 
+        [RegularExpression(@"^[a-zA-Zа-яА-Я-]+$", ErrorMessage = "Используйте только буквы и дефис")]
         [StringLength(400, ErrorMessage = "Слишком много слов")]
         public string Bio { get; set; }
 

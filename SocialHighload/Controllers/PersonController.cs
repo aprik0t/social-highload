@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -24,7 +25,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var personId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var personId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!personId.HasValue) 
                 throw new UnknownUserException();
             var persons = await _personService.GetAllPersonsAsync(personId.Value);
@@ -35,7 +36,7 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> Person(int personId)
         {
-            var curPersonId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var curPersonId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!curPersonId.HasValue) 
                 throw new UnknownUserException();
             var personInfo = await _personService.GetPersonInfoAsync(personId, curPersonId);
@@ -48,18 +49,19 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public async Task<IActionResult> Profile()
         {
-            var curPersonId = await _personService.FindByLoginAsync(User.Identity.Name);
+            var curPersonId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!curPersonId.HasValue) 
                 throw new UnknownUserException();
             var personInfo = await _personService.GetPersonInfoAsync(curPersonId.Value);
-            
             return View(_mapper.Map<DtoUpdatePerson>(personInfo));
         }
 
         [HttpPost]
         public async Task<IActionResult> Profile(DtoUpdatePerson profileData)
         {
-            var curPersonId = await _personService.FindByLoginAsync(User.Identity.Name);
+            if (!ModelState.IsValid)
+                return View();
+            var curPersonId = await _personService.FindByEmailAsync(User.Identity.Name);
             if (!curPersonId.HasValue) 
                 throw new UnknownUserException();
             var updatedPerson = await _personService.UpdateAsync(curPersonId.Value, profileData);

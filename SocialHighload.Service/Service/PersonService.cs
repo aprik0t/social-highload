@@ -70,7 +70,7 @@ namespace SocialHighload.Service.Service
             return personList;
         }
 
-        public async Task<int?> FindByLoginAsync(string email)
+        public async Task<int?> FindByEmailAsync(string email)
         {
             var query = $@"
             SELECT p.Id
