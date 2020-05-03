@@ -51,7 +51,7 @@ namespace SocialHighload.Controllers
                 if (account != null && _encrypt.VerifyHashedPassword(account.Password, model.Password))
                 {
                     await Authenticate(model.Email);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Person");
                 }
             }
                 
@@ -65,7 +65,7 @@ namespace SocialHighload.Controllers
             if (User.Identity.IsAuthenticated)
                 await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("SignIn", "Account");
         }
 
         private async Task Authenticate(string userName)
@@ -84,7 +84,7 @@ namespace SocialHighload.Controllers
         public IActionResult SignUp()
         {
             if (User.Identity.IsAuthenticated) 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Person");
             
             return View();
         }
@@ -94,7 +94,7 @@ namespace SocialHighload.Controllers
         public async Task<IActionResult> SignUp(SignUpModel model)
         {
             if (User.Identity.IsAuthenticated) 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Person");
             if (!ModelState.IsValid) 
                 return View(model);
             if (await _accountService.ExistsAsync(model.Email))
@@ -109,7 +109,7 @@ namespace SocialHighload.Controllers
                     if (accountResult.HasValue)
                     {
                         await Authenticate(model.Email);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Person");
                     }
                 }
                     
