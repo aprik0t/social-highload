@@ -79,7 +79,5 @@ namespace SocialHighload
                     template: "{controller=Account}/{action=SignIn}");
             });
         }
-        
-        
     }
 }
