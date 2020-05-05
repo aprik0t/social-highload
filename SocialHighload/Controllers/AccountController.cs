@@ -35,6 +35,8 @@ namespace SocialHighload.Controllers
         [HttpGet]
         public IActionResult SignIn()
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Person");
             return View("SignIn");
         }
 
@@ -60,6 +62,7 @@ namespace SocialHighload.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> SignOut()
         {
             if (User.Identity.IsAuthenticated)

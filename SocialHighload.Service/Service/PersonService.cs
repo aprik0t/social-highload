@@ -26,16 +26,16 @@ namespace SocialHighload.Service.Service
             return await _dbClient.TryGetIntAsync("SELECT LAST_INSERT_ID();");
         }
 
-        public async Task<List<DtoPerson>> GetAllPersonsAsync(int personId)
+        public async Task<List<DtoPerson>> GetAllPersonsAsync(int currentPersonId)
         {
             _dbClient.RunCmd("DROP TABLE IF EXISTS MyFriends");
             var personList = new List<DtoPerson>();
             var createQuery = $@"
                 CREATE TEMPORARY TABLE MyFriends
                 SELECT DISTINCT (FriendId), `Status` FROM
-	                (SELECT SenderPersonId AS FriendId, `Status` FROM {DbClient.FriendsTable} WHERE ReceiverPersonId = {personId}
+	                (SELECT SenderPersonId AS FriendId, `Status` FROM {DbClient.FriendsTable} WHERE ReceiverPersonId = {currentPersonId}
 	                UNION ALL
-	                SELECT ReceiverPersonId AS FriendId, `Status` FROM {DbClient.FriendsTable} WHERE SenderPersonId = {personId}) AS TMP;
+	                SELECT ReceiverPersonId AS FriendId, `Status` FROM {DbClient.FriendsTable} WHERE SenderPersonId = {currentPersonId}) AS TMP;
             ";
             _dbClient.RunCmd(createQuery);
             var selectQuery = $@"
@@ -44,7 +44,7 @@ namespace SocialHighload.Service.Service
 	                Persons p
                     LEFT JOIN MyFriends f ON f.FriendId = p.Id
                 WHERE 
-	                p.Id <> {personId}";
+	                p.Id <> {currentPersonId}";
             var dataTable = await _dbClient.GetDataTableAsync(selectQuery);
             if (dataTable == null || dataTable.Rows.Count == 0) 
                 return personList;
@@ -88,13 +88,13 @@ namespace SocialHighload.Service.Service
             return Convert.ToInt32(row["Id"]);
         }
 
-        public async Task<DtoPerson> GetPersonInfoAsync(int personId, int? curPersonId = null)
+        public async Task<DtoPerson> GetPersonInfoAsync(int personId, int? currentPersonId = null)
         {
-            var query = curPersonId.HasValue
-                ? $"SELECT p.*, f.Status FROM {DbClient.PersonsTable} p " +
-                    $"LEFT JOIN {DbClient.FriendsTable} f ON " +
-                        "p.Id = f.SenderPersonId OR p.Id = ReceiverPersonId " +
-                    $"WHERE p.Id = {personId} AND (f.SenderPersonId = {curPersonId.Value} OR f.ReceiverPersonId = {curPersonId.Value})"
+            var query = currentPersonId.HasValue
+                ? $"SELECT p.*, f.Status FROM {DbClient.PersonsTable} p LEFT JOIN {DbClient.FriendsTable} f ON " +
+                        $"p.Id = f.SenderPersonId AND f.ReceiverPersonId = {currentPersonId.Value} OR " +
+                        $"p.Id = f.ReceiverPersonId AND f.SenderPersonId = {currentPersonId.Value} " +
+                    $"WHERE p.Id = {personId}"
                 : $"SELECT *, NULL AS Status FROM {DbClient.PersonsTable} WHERE Id = {personId}";
             var dataTable = await _dbClient.GetDataTableAsync(query);
             if (dataTable == null || dataTable.Rows.Count == 0)

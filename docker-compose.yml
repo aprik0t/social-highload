@@ -5,6 +5,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: SocialHighload
+    ports:
+    - "33060:3306"
       
   web:
     image: "aprikot/social-highload:latest"
