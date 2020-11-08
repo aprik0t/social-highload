@@ -20,7 +20,7 @@ namespace SocialHighload.Service.Model.Dto.Person
         public int Age { get; set; }
         
         [Required(ErrorMessage = "Не указан город")]
-        [RegularExpression(@"^[a-zA-Zа-яА-Я-]+$", ErrorMessage = "Используйте только буквы и дефис")]
+        [RegularExpression(@"^[a-zA-Zа-яА-Я-\s]+$", ErrorMessage = "Используйте только буквы, пробел или дефис")]
         [StringLength(100)]
         public string City { get; set; }
         
