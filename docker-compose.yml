@@ -12,7 +12,7 @@ services:
     image: "aprikot/social-highload:latest"
     restart: always
     ports:
-      - 8080:80
+      - 80:80
     links: 
       - "mysql:mysql"
     depends_on: 
