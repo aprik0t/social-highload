@@ -40,9 +40,7 @@ namespace SocialHighload
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var connectionString = Configuration.GetConnectionString("MySqlOtus");
-            services.AddScoped(p => new DbClient(connectionString));
-            var dbClient = services.BuildServiceProvider().GetService<DbClient>();
-            dbClient.EnsureDbCreated().Wait();
+            services.AddScoped(p => new DbClient(connectionString)); 
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IFriendsService, FriendsService>();
