@@ -6,13 +6,13 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: SocialHighload
     ports:
-    - "33060:3306"
+    - "33061:3306"
       
   web:
-    image: "aprikot/social-highload:latest"
+    image: "aprikot/social-highload:1.0"
     restart: always
     ports:
-      - 80:80
+      - 8081:80
     links: 
       - "mysql:mysql"
     depends_on: 
